@@ -1,0 +1,25 @@
+{
+    "name": "Pulse Swadge",
+    "version": "3.1.1",
+    "new_install_prompt_erase": true,
+    "new_install_improv_wait_time": false,
+    "builds": [
+        {
+            "chipFamily": "ESP32-S2",
+            "parts": [
+                {
+                    "path": "bootloader.bin",
+                    "offset": 4096
+                },
+                {
+                    "path": "partition-table.bin",
+                    "offset": 32768
+                },
+                {
+                    "path": "swadge-e559005.bin",
+                    "offset": 65536
+                }
+            ]
+        }
+    ]
+}
