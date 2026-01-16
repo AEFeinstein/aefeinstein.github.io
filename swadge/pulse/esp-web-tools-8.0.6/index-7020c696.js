@@ -30,65 +30,18 @@ import{d as e,r as t,_ as o,n as l,s as i,$ as n,y as a}from"./connect-f67814ca.
         </div>
         <ol>
           <li>
-            Make sure that the device is connected to this computer (the one
-            that runs the browser that shows this website)
+            Make sure that the Swadge is connected to this computer (the one
+            that runs the browser that shows this website).
           </li>
           <li>
-            Most devices have a tiny light when it is powered on. If yours has
-            one, make sure it is on.
-          </li>
-          <li>
-            Make sure that the USB cable you use can be used for data and is not
+            Make sure that the USB cable you're using can be used for data and is not
             a power-only cable.
           </li>
           <li>
-            Make sure you have the right drivers installed. Below are the
-            drivers for common chips used in ESP devices:
-            <ul>
-              <li>
-                CP2102 drivers:
-                <a
-                  href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers"
-                  target="_blank"
-                  rel="noopener"
-                  >Windows & Mac</a
-                >
-              </li>
-              <li>
-                CH342, CH343, CH9102 drivers:
-                <a
-                  href="https://www.wch.cn/downloads/CH343SER_ZIP.html"
-                  target="_blank"
-                  rel="noopener"
-                  >Windows</a
-                >,
-                <a
-                  href="https://www.wch.cn/downloads/CH34XSER_MAC_ZIP.html"
-                  target="_blank"
-                  rel="noopener"
-                  >Mac</a
-                >
-                <br />
-                (download via blue button with ${s} icon)
-              </li>
-              <li>
-                CH340, CH341 drivers:
-                <a
-                  href="https://www.wch.cn/downloads/CH341SER_ZIP.html"
-                  target="_blank"
-                  rel="noopener"
-                  >Windows</a
-                >,
-                <a
-                  href="https://www.wch.cn/downloads/CH341SER_MAC_ZIP.html"
-                  target="_blank"
-                  rel="noopener"
-                  >Mac</a
-                >
-                <br />
-                (download via blue button with ${s} icon)
-              </li>
-            </ul>
+            Make sure the power switch is in the USB position when you plugged the Swadge in.
+          </li>
+          <li>
+            Make sure that you were holding the Up button on the D-Pad when you plugged the Swadge in.
           </li>
         </ol>
         ${this.doTryAgain?n`
