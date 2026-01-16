@@ -11,7 +11,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
+
     <link rel="stylesheet" href="css/pico.min.css">
+    <style>
+        .error-message {
+            color: red;
+            font-weight: bold;
+            border: solid 2px #996600;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
     <title>Pulse Swadge Firmware Updater</title>
 </head>
 
@@ -46,56 +61,64 @@
             <header>
                 <h3>Online Firmware Update</h3>
             </header>
-            <ol>
-                <li>Connect one end of a USB-C cable to your Swadge's USB-C port, located next to the power
-                    switch. Don't plug the other end into your computer yet!<br />
-                    <div style="justify-content: center; align-items: center; display: flex;">
-                        <img src="images/pulse-render-annotated.png"
-                            alt="An image of the 2026 MAGFest Swadge, with two annotations indicating the position of the Program button and the Power Switch. The Program button is the &quot;Up&quot; button in the directional pad on the left-hand side, labeled &quot;PGM&quot;. The Power switch is located on the top edge of the swadge, above the &quot;A&quot; button." />
-                    </div>
-                </li>
-                <li>Set your Swadge's power switch to the <code>USB</code> position.</li>
-                <li>Hold down the Swadge's Program button (Up on the D-Pad).</li>
-                <li>While still holding down the Program button, plug the other end of the USB cable into your computer.
-                    If this is done correctly, the eye LEDs should light up but the display should <em>not</em> turn
-                    on.<br />
-                    <div style="justify-content: center; align-items: center; display: flex;">
-                        <img src="images/pulse-flash-mode-comparison.png"
-                            alt="A comparison of two images of the Swadge. The image on the left has illuminated eye LEDs and a blank display and has the label &quot;OK!&quot;. The image on the left has illuminated eye LEDs and the display shows the main menu, with the label &quot;Not OK&quot;" />
-                    </div>
-                </li>
-                <li>Release the Program button.</li>
-                <li>Click &quot;Connect&quot; below to locate your Swadge and begin the update.
-                    <ol>
-                        <li>
-                            Pick the serial port option that says "ESP32-S2" to connect to the Swadge
-                        </li>
-                        <li>
-                            From the Device Dashboard, click "Install Pulse Swadge"
-                        </li>
-                        <li>
-                            Confirm the installation and click "Install"
-                        </li>
-                        <li>
-                            After the firmware update is complete close Device Dashboard
-                        </li>
-                    </ol>
-                    <div style="justify-content: center; align-items: center; display: flex;">
-                        <esp-web-install-button manifest="./manifest.json" style="--esp-tools-button-width: 512px;
+            <div id="unsupported-message" class="error-message hidden">
+                Oh no! Your browser does not support WebSerial. Supported browsers are Google Chrome/Chromium, Microsoft
+                Edge, or Opera. Mobile browsers are not supported. Please either use a supported browser, or use the
+                Offline Firmware Update below.
+            </div>
+            <div id="online-update-instructions">
+                <ol>
+                    <li>Connect one end of a USB-C cable to your Swadge's USB-C port, located next to the power
+                        switch. Don't plug the other end into your computer yet!<br />
+                        <div style="justify-content: center; align-items: center; display: flex;">
+                            <img src="images/pulse-render-annotated.png"
+                                alt="An image of the 2026 MAGFest Swadge, with two annotations indicating the position of the Program button and the Power Switch. The Program button is the &quot;Up&quot; button in the directional pad on the left-hand side, labeled &quot;PGM&quot;. The Power switch is located on the top edge of the swadge, above the &quot;A&quot; button." />
+                        </div>
+                    </li>
+                    <li>Set your Swadge's power switch to the <code>USB</code> position.</li>
+                    <li>Hold down the Swadge's Program button (Up on the D-Pad).</li>
+                    <li>While still holding down the Program button, plug the other end of the USB cable into your
+                        computer.
+                        If this is done correctly, the eye LEDs should light up but the display should <em>not</em> turn
+                        on.<br />
+                        <div style="justify-content: center; align-items: center; display: flex;">
+                            <img src="images/pulse-flash-mode-comparison.png"
+                                alt="A comparison of two images of the Swadge. The image on the left has illuminated eye LEDs and a blank display and has the label &quot;OK!&quot;. The image on the left has illuminated eye LEDs and the display shows the main menu, with the label &quot;Not OK&quot;" />
+                        </div>
+                    </li>
+                    <li>Release the Program button.</li>
+                    <li>Click &quot;Connect&quot; below to locate your Swadge and begin the update.
+                        <ol>
+                            <li>
+                                Pick the serial port option that says "ESP32-S2" to connect to the Swadge
+                            </li>
+                            <li>
+                                From the Device Dashboard, click "Install Pulse Swadge"
+                            </li>
+                            <li>
+                                Confirm the installation and click "Install"
+                            </li>
+                            <li>
+                                After the firmware update is complete close Device Dashboard
+                            </li>
+                        </ol>
+                        <div style="justify-content: center; align-items: center; display: flex;">
+                            <esp-web-install-button manifest="./manifest.json" style="--esp-tools-button-width: 512px;
                                     --esp-tools-button-height: 64px;
                                     --esp-tools-button-font-size: 1.5em;
                                     --esp-tools-button-text-color: #fff ;
                                     --esp-tools-button-color: #0172AD"></esp-web-install-button>
-                    </div>
-                </li>
-                <li>After the update completes turn your Swadge off and on. If it says "Swadge 3.1" at the top, you're
-                    good to go!<br />
-                    <div style="justify-content: center; align-items: center; display: flex;">
-                        <img src="images/flash-done.png"
-                            alt="An image of the Swadge's screen after a firmware update is successful" />
-                    </div>
-                </li>
-            </ol>
+                        </div>
+                    </li>
+                    <li>After the update completes turn your Swadge off and on. If it says "Swadge 3.1" at the top,
+                        you're good to go!<br />
+                        <div style="justify-content: center; align-items: center; display: flex;">
+                            <img src="images/flash-done.png"
+                                alt="An image of the Swadge's screen after a firmware update is successful" />
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </article>
         <article>
             <header>
@@ -108,6 +131,12 @@
                 href="https://github.com/AEFeinstein/Super-2024-Swadge-FW/blob/main/tools/pyFlashGui/README.md">the
                 Firmware Update Utility instructions</a>.
         </article>
+        <script>
+            if (!("serial" in navigator)) {
+                document.getElementById("unsupported-message").classList.remove("hidden");
+                document.getElementById("online-update-instructions").classList.add("hidden");
+            }
+        </script>
     </main>
     <footer class="container">
         <hr />
