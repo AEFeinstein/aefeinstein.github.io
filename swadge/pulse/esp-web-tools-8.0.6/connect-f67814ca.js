@@ -554,7 +554,7 @@ var e=function(t,i){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                 <ewt-button
                   text-left
                   .label=${this._isSameFirmware?`Update ${this._manifest.name}`:`Install ${this._manifest.name}`}
-                  @click=${()=>{this._isSameFirmware?this._startInstall(!1):this._manifest.new_install_prompt_erase?this._state="ASK_ERASE":this._startInstall(!0)}}
+                  @click=${()=>{this._isSameFirmware?this._startInstall(!1):this._manifest.new_install_prompt_erase?this._state="ASK_ERASE":this._startInstall(!1)}}
                 ></ewt-button>
               </div>
             `}
@@ -608,7 +608,7 @@ var e=function(t,i){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                 <ewt-button
                   class="danger"
                   label="Erase User Data"
-                  @click=${()=>this._startInstall(!0)}
+                  @click=${()=>this._startInstall(!1)}
                 ></ewt-button>
               </div>
             `:""}
@@ -619,7 +619,7 @@ var e=function(t,i){return(e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
           <ewt-button
             text-left
             .label=${`Install ${this._manifest.name}`}
-            @click=${()=>{this._manifest.new_install_prompt_erase?this._state="ASK_ERASE":this._startInstall(!0)}}
+            @click=${()=>{this._manifest.new_install_prompt_erase?this._state="ASK_ERASE":this._startInstall(!1)}}
           ></ewt-button>
         </div>
 

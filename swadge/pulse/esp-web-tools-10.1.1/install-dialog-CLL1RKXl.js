@@ -533,7 +533,7 @@ import{e,_ as t,o as i,i as r,x as o,a,n as s,t as n,m as l,b as d,E as c,c as h
           ${this._isSameVersion?"":o`
                 <ew-list-item
                   type="button"
-                  @click=${()=>{this._isSameFirmware?this._startInstall(!1):this._manifest.new_install_prompt_erase?this._state="ASK_ERASE":this._startInstall(!0)}}
+                  @click=${()=>{this._isSameFirmware?this._startInstall(!1):this._manifest.new_install_prompt_erase?this._state="ASK_ERASE":this._startInstall(!1)}}
                 >
                   ${Qt}
                   <div slot="headline">
