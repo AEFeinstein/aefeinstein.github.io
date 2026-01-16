@@ -1,16 +1,118 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <!-- Version 8.0.6 is ole reliable. See https://github.com/esphome/esp-web-tools/issues/375 -->
-
     <!-- <script type="module" src="https://unpkg.com/esp-web-tools@8.0.6/dist/web/install-button.js?module"></script> -->
     <!-- <script type="module" src="https://unpkg.com/esp-web-tools@10.1.1/dist/web/install-button.js?module"></script> -->
     <script type="module" src="./esp-web-tools-8.0.6/install-button.js?module"></script>
     <!-- <script type="module" src="./esp-web-tools-10.1.1/install-button.js?module"></script> -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <title>Pulse Swadge Firmware Updater</title>
 </head>
 
 <body>
-    <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+    <header class="container">
+        <nav aria-label="breadcrumb" style="--pico-nav-breadcrumb-divider: '•';">
+            <ul>
+                <li>
+                    <h1>Pulse Swadge Firmware Updater</h1>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="https://www.magfest.org">MAGFest.org</a></li>
+                <li><a href="https://www.swadge.com">Swadge.com</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <img src="images/Super-2026-Logo-Full.png" alt="The logo for Super Magfest 20X6">
+        <article>
+            <header>
+                <h3>Welcome</h3>
+            </header>
+            Welcome to the Pulse Swadge Firmware Update webpage! Here you can update your Swadge's firmware directly
+            from your browser to fix some messy bugs. We try our best to write perfect firmware for Magfest, but
+            nobody's perfect, y'know?<br />
+            <br />
+            If you have any questions, don't hesitate to <a href="mailto:circuitboards@magfest.org">E-Mail us</a> or
+            join the conversation <a href="https://discord.magfest.org">in Discord</a> (#tech channel).
+        </article>
+        <article>
+            <header>
+                <h3>Online Firmware Update</h3>
+            </header>
+            <ol>
+                <li>Connect one end of a USB-C cable to your Swadge's USB-C port, located next to the power
+                    switch. Don't plug the other end into your computer yet!<br />
+                    <div style="justify-content: center; align-items: center; display: flex;">
+                        <img src="images/pulse-render-annotated.png"
+                            alt="An image of the 2026 MAGFest Swadge, with two annotations indicating the position of the Program button and the Power Switch. The Program button is the &quot;Up&quot; button in the directional pad on the left-hand side, labeled &quot;PGM&quot;. The Power switch is located on the top edge of the swadge, above the &quot;A&quot; button." />
+                    </div>
+                </li>
+                <li>Set your Swadge's power switch to the <code>USB</code> position.</li>
+                <li>Hold down the Swadge's Program button (Up on the D-Pad).</li>
+                <li>While still holding down the Program button, plug the other end of the USB cable into your computer.
+                    If this is done correctly, the eye LEDs should light up but the display should <em>not</em> turn
+                    on.<br />
+                    <div style="justify-content: center; align-items: center; display: flex;">
+                        <img src="images/pulse-flash-mode-comparison.png"
+                            alt="A comparison of two images of the Swadge. The image on the left has illuminated eye LEDs and a blank display and has the label &quot;OK!&quot;. The image on the left has illuminated eye LEDs and the display shows the main menu, with the label &quot;Not OK&quot;" />
+                    </div>
+                </li>
+                <li>Release the Program button.</li>
+                <li>Click &quot;Connect&quot; below to locate your Swadge and begin the update.
+                    <ol>
+                        <li>
+                            Pick the serial port option that says "ESP32-S2" to connect to the Swadge
+                        </li>
+                        <li>
+                            From the Device Dashboard, click "Install Pulse Swadge"
+                        </li>
+                        <li>
+                            Confirm the installation and click "Install"
+                        </li>
+                        <li>
+                            After the firmware update is complete close Device Dashboard
+                        </li>
+                    </ol>
+                    <div style="justify-content: center; align-items: center; display: flex;">
+                        <esp-web-install-button manifest="./manifest.json" style="--esp-tools-button-width: 512px;
+                                    --esp-tools-button-height: 64px;
+                                    --esp-tools-button-font-size: 1.5em;
+                                    --esp-tools-button-text-color: #fff ;
+                                    --esp-tools-button-color: #0172AD"></esp-web-install-button>
+                    </div>
+                </li>
+                <li>After the update completes turn your Swadge off and on. If it says "Swadge 3.1" at the top, you're
+                    good to go!<br />
+                    <div style="justify-content: center; align-items: center; display: flex;">
+                        <img src="images/flash-done.png"
+                            alt="An image of the Swadge's screen after a firmware update is successful" />
+                    </div>
+                </li>
+            </ol>
+        </article>
+        <article>
+            <header>
+                <h3>Offline Firmware Update</h3>
+            </header>
+            If you are having trouble using this tool, you may instead download the <a
+                href="https://github.com/AEFeinstein/Super-2024-Swadge-FW/releases/download/v3.1.0/9b7b99f_swadge2024-firmware.zip">Firmware
+                Update
+                Utility</a> and follow <a
+                href="https://github.com/AEFeinstein/Super-2024-Swadge-FW/blob/main/tools/pyFlashGui/README.md">the
+                Firmware Update Utility instructions</a>.
+        </article>
+    </main>
+    <footer class="container">
+        <hr />
+        Installer powered by <code><a href="https://github.com/esphome/esp-web-tools">esp-web-tools</a></code>!
+    </footer>
 </body>
 
 </html>
