@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
 	<head>
 		<meta charset="utf-8">
 		<title>Swadge History</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/pico.min.css">
 		<link rel="stylesheet" href="w3.css">
 		<style>
 			#container {
@@ -80,42 +81,54 @@
 				background: url('swadge_imgs/play_btn.png') no-repeat;
 				cursor: pointer;
 			}
+
+			.sidebar_img {
+				height: 32px;
+				width: 64px;
+			}
+
+			.swadge_img {
+				height: 315px;
+			}
 		</style>
 
 		<template id="main_template">
 			<div id="ANCHOR">
-				<h2 class="item_title">TEXT</h2>
-				<div class="imgs_container">TEXT</div>
-				<h3 class="item_subtitle">Credits</h3>
-				<div class="item_credits">TEXT</div>
-				<h3 class="item_subtitle">Description</h3>
-				<div class="item_desc">TEXT</div>
-				<div class="modes_container">
-					<h3 class="item_subtitle">Modes</h3>
-					<div class="item_modes">TEXT</div>
-				</div>
-				<h3 class="item_subtitle">Links</h3>
-				<div id="container" class="gh_link_container">
-					<div id="left">
-						<img src="swadge_imgs/GitHub-Mark-64px.png" width="64" height="64">
+				<article>
+					<header>
+						<h2 class="item_title">TEXT</h2>
+					</header>
+					<div class="imgs_container">TEXT</div>
+					<h3 class="item_subtitle">Credits</h3>
+					<div class="item_credits">TEXT</div>
+					<h3 class="item_subtitle">Description</h3>
+					<div class="item_desc">TEXT</div>
+					<div class="modes_container">
+						<h3 class="item_subtitle">Modes</h3>
+						<div class="item_modes">TEXT</div>
 					</div>
-					<div id="right" class="item_github">TEXT</div>
-				</div>
-				<div id="container" class="sw_link_container">
-					<div id="left">
-						<img src="swadge_imgs/swadge_icon.png" width="64" height="64">
+					<h3 class="item_subtitle">Links</h3>
+					<div id="container" class="gh_link_container">
+						<div id="left">
+							<img src="swadge_imgs/GitHub-Mark-64px.png" width="64" height="64">
+						</div>
+						<div id="right" class="item_github">TEXT</div>
 					</div>
-					<div id="right" class="item_swadge_com">TEXT</div>
-				</div>
-				<div id="container" class="mn_link_container">
-					<div id="left">
-						<img src="swadge_imgs/manual-book.png" width="64" height="64">
+					<div id="container" class="sw_link_container">
+						<div id="left">
+							<img src="swadge_imgs/swadge_icon.png" width="64" height="64">
+						</div>
+						<div id="right" class="item_swadge_com">TEXT</div>
 					</div>
-					<div id="right" class="item_swadge_manuals">TEXT</div>
-				</div>
-				<h3 class="item_subtitle">Videos</h3>
-				<div class="yt_link_container">TEXT</div>
-				<hr>
+					<div id="container" class="mn_link_container">
+						<div id="left">
+							<img src="swadge_imgs/manual-book.png" width="64" height="64">
+						</div>
+						<div id="right" class="item_swadge_manuals">TEXT</div>
+					</div>
+					<h3 class="item_subtitle">Videos</h3>
+					<div class="yt_link_container">TEXT</div>
+				</article>
 			</div>
 		</template>
 
@@ -518,7 +531,7 @@
 						var imgIdx;
 						var img_txt = "";
 						for(imgIdx = 0; imgIdx < data[idx].imgs.length; imgIdx++) {
-							img_txt += "<img src=\"swadge_imgs/" + data[idx].imgs[imgIdx] + "\" height=\"315\">"
+							img_txt += "<img src=\"swadge_imgs/" + data[idx].imgs[imgIdx] + "\" class=swadge_img>"
 						}
 						replaceHtmlByClass(m_node, ".imgs_container", img_txt);
 					}
@@ -547,7 +560,7 @@
 					var s_node = document.importNode(s_item, true);
 					// Create an anchor link
 					s_node.querySelector("a").setAttribute("href", "#" + data[idx].name)
-					replaceHtmlByClass(s_node, ".w3-bar-item", "<img src=\"swadge_imgs\\" + data[idx].icon+ "\" height=\"32\" width=64> " + data[idx].name);
+					replaceHtmlByClass(s_node, ".w3-bar-item", "<img src=\"swadge_imgs\\" + data[idx].icon+ "\" class=sidebar_img> " + data[idx].name);
 					// Append the node to the sidebar
 					document.getElementById("sidebar").appendChild(s_node);
 				}
@@ -596,24 +609,26 @@
 
 		<!-- Sidebar -->
 		<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%" id="sidebar">
+			<div class="w3-container w3-teal">
+				<h2>Swadge History</h2>
+			</div>
 			<h3 class="w3-bar-item"></h3>
 			<!-- content added via template -->
 		</div>
 
 		<!-- Page Content -->
 		<div style="margin-left:25%">
-			<div class="w3-container w3-teal">
-				<h1>Swadge History</h1>
-			</div>
-			<div class="w3-container" id="main_content">
-				<!--
-				<ul>
-					<li><a href="https://photos.google.com/share/AF1QipPLuKIJAFl__YM99s27YNtrL8kk5-zIjjxqxU3z837qvz2xMR4AGMbx1iFKQr_Ivg?key=RXYwS0tzSFE0azRXb0RQRWxRMGhqbEh0eWlMdmNR">Google Photo Album</a></li>
-					<li><a href="https://docs.google.com/document/d/1zuJ04DWmYMRNDTC8mrsMKL4H1TFm8wToW_LboJRVXCU/edit">Google Doc</a></li>
-				</ul>
-				-->
-				<!-- content added via template -->
-			</div>
+			<main class="container-fluid">
+				<div class="w3-container" id="main_content">
+					<!--
+					<ul>
+						<li><a href="https://photos.google.com/share/AF1QipPLuKIJAFl__YM99s27YNtrL8kk5-zIjjxqxU3z837qvz2xMR4AGMbx1iFKQr_Ivg?key=RXYwS0tzSFE0azRXb0RQRWxRMGhqbEh0eWlMdmNR">Google Photo Album</a></li>
+						<li><a href="https://docs.google.com/document/d/1zuJ04DWmYMRNDTC8mrsMKL4H1TFm8wToW_LboJRVXCU/edit">Google Doc</a></li>
+					</ul>
+					-->
+					<!-- content added via template -->
+				</div>
+			</main>
 		</div>
 
 	</body>
