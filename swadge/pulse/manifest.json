@@ -1,6 +1,6 @@
 {
     "name": "Pulse Swadge",
-    "version": "3.1.1",
+    "version": "3.1.2",
     "new_install_prompt_erase": false,
     "new_install_improv_wait_time": false,
     "builds": [
@@ -16,7 +16,7 @@
                     "offset": 32768
                 },
                 {
-                    "path": "f05e5d7_swadge2024.bin",
+                    "path": "b60d767_swadge2024.bin",
                     "offset": 65536
                 }
             ]
